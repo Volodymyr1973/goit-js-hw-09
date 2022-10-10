@@ -7,11 +7,19 @@ import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const inputEl = document.querySelector('#datetime-picker');
-
 console.log(inputEl);
 
 const buttonEl = document.querySelector('button');
 buttonEl.disabled = true;
+
+const timerEl = document.querySelector('.timer');
+timerEl.style.display = 'flex';
+timerEl.style.fontSize = '42px';
+timerEl.style.marginTop = '20px';
+
+const spanEl = document.querySelectorAll('span');
+
+const fieldEl = document.querySelector('.field');
 
 const valueDay = document.querySelector('span[data-days]');
 console.dir(valueDay);

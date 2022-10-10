@@ -16,6 +16,7 @@ const btnStop = document.querySelector('button[data-stop]');
 btnStop.style.width = '120px';
 btnStop.style.height = '40px';
 btnStop.style.margin = '4px';
+btnStop.disabled = true;
 console.log(btnStop);
 
 let intervalId;
@@ -25,8 +26,7 @@ function getRandomHexColor() {
 }
 
 function getDisableButton() {
-  btnStart.getAttribute('disabled', 'true');
-  btnStart.style.color = 'gray';
+  btnStart.disabled = true;
 }
 
 function onClickStart(event) {
@@ -35,15 +35,17 @@ function onClickStart(event) {
     () => (bodyEl.style.backgroundColor = getRandomHexColor()),
     1000
   );
+  getDisableButton();
+  btnStop.disabled = false;
 }
 
 btnStart.addEventListener('click', onClickStart);
 
-getDisableButton();
-
 function onCliclStop(event) {
   console.log(event);
   clearInterval(intervalId);
+  btnStart.disabled = false;
+  btnStop.disabled = true;
 }
 
 btnStop.addEventListener('click', onCliclStop);
